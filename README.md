@@ -1,0 +1,2 @@
+# OtomataProje
+ otomata projesi
