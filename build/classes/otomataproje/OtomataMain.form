@@ -213,7 +213,7 @@
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="dfa_olustur_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="nfa_olustur_buton" alignment="3" max="32767" attributes="0"/>
+                  <Component id="nfa_olustur_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="cizimin_yapilacagi_alan" pref="278" max="32767" attributes="0"/>
