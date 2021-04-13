@@ -44,6 +44,37 @@
             </MenuItem>
           </SubComponents>
         </Menu>
+        <Menu class="javax.swing.JMenu" name="jMenu5">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xd6;rnekler"/>
+          </Properties>
+          <SubComponents>
+            <MenuItem class="javax.swing.JMenuItem" name="ornekBir_buton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xd6;rnek 1"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ornekBir_butonActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ornekiki_buton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xd6;rnek 2"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ornekiki_butonActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ornekUc_buton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xd6;rnek 3"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ornekUc_butonActionPerformed"/>
+              </Events>
+            </MenuItem>
+          </SubComponents>
+        </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Yard&#x131;m"/>
@@ -64,28 +95,29 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Hakk&#x131;m&#x131;zda"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hakkimizda_butonActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu5">
+        <Menu class="javax.swing.JMenu" name="jMenu1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="&#xd6;rnekler"/>
+            <Property name="text" type="java.lang.String" value="Ayarlar"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="ornekBir_buton">
+            <MenuItem class="javax.swing.JMenuItem" name="yaziTipi_buton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#xd6;rnek 1"/>
+                <Property name="text" type="java.lang.String" value="Yaz&#x131; Tipi"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ornekiki_buton">
+            <MenuItem class="javax.swing.JMenuItem" name="yaziRengi_buton">
               <Properties>
-                <Property name="text" type="java.lang.String" value="&#xd6;rnek 2"/>
+                <Property name="text" type="java.lang.String" value="Yaz&#x131; Rengi"/>
               </Properties>
-            </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="ornekUc_buton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="&#xd6;rnek 3"/>
-              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yaziRengi_butonActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>

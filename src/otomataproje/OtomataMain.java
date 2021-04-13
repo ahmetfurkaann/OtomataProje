@@ -5,6 +5,7 @@
  */
 package otomataproje;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -14,6 +15,7 @@ import java.io.IOException;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JColorChooser;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 
@@ -49,13 +51,16 @@ public class OtomataMain extends javax.swing.JFrame {
         dosyaAc_buton = new javax.swing.JMenuItem();
         dosyaKaydet_buton = new javax.swing.JMenuItem();
         cikis_buton = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
-        yardim_buton = new javax.swing.JMenuItem();
-        hakkimizda_buton = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         ornekBir_buton = new javax.swing.JMenuItem();
         ornekiki_buton = new javax.swing.JMenuItem();
         ornekUc_buton = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
+        yardim_buton = new javax.swing.JMenuItem();
+        hakkimizda_buton = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        yaziTipi_buton = new javax.swing.JMenuItem();
+        yaziRengi_buton = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Otomata Projesi");
@@ -101,6 +106,34 @@ public class OtomataMain extends javax.swing.JFrame {
 
         jMenuBar1.add(Mdosya_buton);
 
+        jMenu5.setText("Örnekler");
+
+        ornekBir_buton.setText("Örnek 1");
+        ornekBir_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ornekBir_butonActionPerformed(evt);
+            }
+        });
+        jMenu5.add(ornekBir_buton);
+
+        ornekiki_buton.setText("Örnek 2");
+        ornekiki_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ornekiki_butonActionPerformed(evt);
+            }
+        });
+        jMenu5.add(ornekiki_buton);
+
+        ornekUc_buton.setText("Örnek 3");
+        ornekUc_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ornekUc_butonActionPerformed(evt);
+            }
+        });
+        jMenu5.add(ornekUc_buton);
+
+        jMenuBar1.add(jMenu5);
+
         jMenu4.setText("Yardım");
 
         yardim_buton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
@@ -113,22 +146,29 @@ public class OtomataMain extends javax.swing.JFrame {
         jMenu4.add(yardim_buton);
 
         hakkimizda_buton.setText("Hakkımızda");
+        hakkimizda_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hakkimizda_butonActionPerformed(evt);
+            }
+        });
         jMenu4.add(hakkimizda_buton);
 
         jMenuBar1.add(jMenu4);
 
-        jMenu5.setText("Örnekler");
+        jMenu1.setText("Ayarlar");
 
-        ornekBir_buton.setText("Örnek 1");
-        jMenu5.add(ornekBir_buton);
+        yaziTipi_buton.setText("Yazı Tipi");
+        jMenu1.add(yaziTipi_buton);
 
-        ornekiki_buton.setText("Örnek 2");
-        jMenu5.add(ornekiki_buton);
+        yaziRengi_buton.setText("Yazı Rengi");
+        yaziRengi_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yaziRengi_butonActionPerformed(evt);
+            }
+        });
+        jMenu1.add(yaziRengi_buton);
 
-        ornekUc_buton.setText("Örnek 3");
-        jMenu5.add(ornekUc_buton);
-
-        jMenuBar1.add(jMenu5);
+        jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
 
@@ -221,6 +261,42 @@ public class OtomataMain extends javax.swing.JFrame {
                     "C->0A|1D");            //DAHA SONRA BURASI DÜZENLENECEK!!!!
     }//GEN-LAST:event_yardim_butonActionPerformed
 
+    private void hakkimizda_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hakkimizda_butonActionPerformed
+        Hakkimizda hakkimizda = new Hakkimizda();
+        hakkimizda.setVisible(true);
+    }//GEN-LAST:event_hakkimizda_butonActionPerformed
+
+    private void ornekBir_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ornekBir_butonActionPerformed
+        String ornekbir = "S->0A|1D|$\n" +
+                            "A->1B|$\n" +
+                            "B->1D|0A|$\n" +
+                            "D->0C|1B\n" +
+                            "C->0A|1D";
+        
+        yazi_alani.setText(ornekbir);
+    }//GEN-LAST:event_ornekBir_butonActionPerformed
+
+    private void ornekiki_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ornekiki_butonActionPerformed
+        String ornekiki = "A->1B|$C|$\n" +
+                          "B->0B|0C|1C\n" +
+                          "C->0A ";
+        
+        yazi_alani.setText(ornekiki);
+    }//GEN-LAST:event_ornekiki_butonActionPerformed
+
+    private void ornekUc_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ornekUc_butonActionPerformed
+        String ornekuc = "A->0A|1A|0B\n" +
+                         "B->1C\n" +
+                         "C->$";
+        
+        yazi_alani.setText(ornekuc);
+    }//GEN-LAST:event_ornekUc_butonActionPerformed
+
+    private void yaziRengi_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yaziRengi_butonActionPerformed
+        Color color = JColorChooser.showDialog(this, "Bir renk seçiniz.", Color.BLACK);
+        yazi_alani.setForeground(color);
+    }//GEN-LAST:event_yaziRengi_butonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -264,6 +340,7 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem dosyaAc_buton;
     private javax.swing.JMenuItem dosyaKaydet_buton;
     private javax.swing.JMenuItem hakkimizda_buton;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
@@ -273,6 +350,8 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem ornekUc_buton;
     private javax.swing.JMenuItem ornekiki_buton;
     private javax.swing.JMenuItem yardim_buton;
+    private javax.swing.JMenuItem yaziRengi_buton;
+    private javax.swing.JMenuItem yaziTipi_buton;
     private javax.swing.JTextArea yazi_alani;
     // End of variables declaration//GEN-END:variables
 }
