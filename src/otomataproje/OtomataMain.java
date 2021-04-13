@@ -156,8 +156,18 @@ public class OtomataMain extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenu1.setText("Ayarlar");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
 
         yaziTipi_buton.setText("Yazı Tipi");
+        yaziTipi_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yaziTipi_butonActionPerformed(evt);
+            }
+        });
         jMenu1.add(yaziTipi_buton);
 
         yaziRengi_buton.setText("Yazı Rengi");
@@ -297,6 +307,15 @@ public class OtomataMain extends javax.swing.JFrame {
         yazi_alani.setForeground(color);
     }//GEN-LAST:event_yaziRengi_butonActionPerformed
 
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void yaziTipi_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yaziTipi_butonActionPerformed
+        YaziTipi yazitipiframe = new YaziTipi();
+        yazitipiframe.setVisible(true);
+    }//GEN-LAST:event_yaziTipi_butonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -352,6 +371,6 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem yardim_buton;
     private javax.swing.JMenuItem yaziRengi_buton;
     private javax.swing.JMenuItem yaziTipi_buton;
-    private javax.swing.JTextArea yazi_alani;
+    public javax.swing.JTextArea yazi_alani;
     // End of variables declaration//GEN-END:variables
 }
