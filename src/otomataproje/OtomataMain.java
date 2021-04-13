@@ -6,6 +6,7 @@
 package otomataproje;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -41,6 +42,7 @@ public class OtomataMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuItem3 = new javax.swing.JMenuItem();
         jScrollPane1 = new javax.swing.JScrollPane();
         yazi_alani = new javax.swing.JTextArea();
         nfa_olustur_buton = new javax.swing.JButton();
@@ -59,8 +61,14 @@ public class OtomataMain extends javax.swing.JFrame {
         yardim_buton = new javax.swing.JMenuItem();
         hakkimizda_buton = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
-        yaziTipi_buton = new javax.swing.JMenuItem();
+        jMenu2 = new javax.swing.JMenu();
+        timesnewroman_buton = new javax.swing.JMenuItem();
+        calibri_buton = new javax.swing.JMenuItem();
+        arial_buton = new javax.swing.JMenuItem();
+        couriernew_buton = new javax.swing.JMenuItem();
         yaziRengi_buton = new javax.swing.JMenuItem();
+
+        jMenuItem3.setText("jMenuItem3");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Otomata Projesi");
@@ -162,13 +170,41 @@ public class OtomataMain extends javax.swing.JFrame {
             }
         });
 
-        yaziTipi_buton.setText("Yazı Tipi");
-        yaziTipi_buton.addActionListener(new java.awt.event.ActionListener() {
+        jMenu2.setText("Yazı Tipi");
+
+        timesnewroman_buton.setText("Times New Roman");
+        timesnewroman_buton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yaziTipi_butonActionPerformed(evt);
+                timesnewroman_butonActionPerformed(evt);
             }
         });
-        jMenu1.add(yaziTipi_buton);
+        jMenu2.add(timesnewroman_buton);
+
+        calibri_buton.setText("Calibri");
+        calibri_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calibri_butonActionPerformed(evt);
+            }
+        });
+        jMenu2.add(calibri_buton);
+
+        arial_buton.setText("Arial");
+        arial_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                arial_butonActionPerformed(evt);
+            }
+        });
+        jMenu2.add(arial_buton);
+
+        couriernew_buton.setText("Courier New");
+        couriernew_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                couriernew_butonActionPerformed(evt);
+            }
+        });
+        jMenu2.add(couriernew_buton);
+
+        jMenu1.add(jMenu2);
 
         yaziRengi_buton.setText("Yazı Rengi");
         yaziRengi_buton.addActionListener(new java.awt.event.ActionListener() {
@@ -201,12 +237,11 @@ public class OtomataMain extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(cizimin_yapilacagi_alan, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                 .addContainerGap())
@@ -311,10 +346,25 @@ public class OtomataMain extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jMenu1ActionPerformed
 
-    private void yaziTipi_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yaziTipi_butonActionPerformed
-        YaziTipi yazitipiframe = new YaziTipi();
-        yazitipiframe.setVisible(true);
-    }//GEN-LAST:event_yaziTipi_butonActionPerformed
+    private void couriernew_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_couriernew_butonActionPerformed
+        Font font = new Font("Courier New", Font.PLAIN, 20);          
+        yazi_alani.setFont(font);
+    }//GEN-LAST:event_couriernew_butonActionPerformed
+
+    private void arial_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_arial_butonActionPerformed
+        Font font = new Font("Arial", Font.PLAIN, 20);          
+        yazi_alani.setFont(font);
+    }//GEN-LAST:event_arial_butonActionPerformed
+
+    private void calibri_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calibri_butonActionPerformed
+        Font font = new Font("Calibri", Font.PLAIN, 20);          
+        yazi_alani.setFont(font);
+    }//GEN-LAST:event_calibri_butonActionPerformed
+
+    private void timesnewroman_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_timesnewroman_butonActionPerformed
+        Font font = new Font("Times New Roman", Font.PLAIN, 20);          
+        yazi_alani.setFont(font);
+    }//GEN-LAST:event_timesnewroman_butonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,24 +403,29 @@ public class OtomataMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Mdosya_buton;
+    private javax.swing.JMenuItem arial_buton;
+    private javax.swing.JMenuItem calibri_buton;
     private javax.swing.JMenuItem cikis_buton;
     private javax.swing.JLabel cizimin_yapilacagi_alan;
+    private javax.swing.JMenuItem couriernew_buton;
     private javax.swing.JButton dfa_olustur_buton;
     private javax.swing.JMenuItem dosyaAc_buton;
     private javax.swing.JMenuItem dosyaKaydet_buton;
     private javax.swing.JMenuItem hakkimizda_buton;
     private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton nfa_olustur_buton;
     private javax.swing.JMenuItem ornekBir_buton;
     private javax.swing.JMenuItem ornekUc_buton;
     private javax.swing.JMenuItem ornekiki_buton;
+    private javax.swing.JMenuItem timesnewroman_buton;
     private javax.swing.JMenuItem yardim_buton;
     private javax.swing.JMenuItem yaziRengi_buton;
-    private javax.swing.JMenuItem yaziTipi_buton;
     public javax.swing.JTextArea yazi_alani;
     // End of variables declaration//GEN-END:variables
 }
