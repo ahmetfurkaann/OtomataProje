@@ -5,6 +5,18 @@
  */
 package otomataproje;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFileChooser;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author MONSTER
@@ -28,9 +40,9 @@ public class OtomataMain extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        yazi_alani = new javax.swing.JTextArea();
+        nfa_olustur_buton = new javax.swing.JButton();
+        dfa_olustur_buton = new javax.swing.JButton();
         cizimin_yapilacagi_alan = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Mdosya_buton = new javax.swing.JMenu();
@@ -48,13 +60,13 @@ public class OtomataMain extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Otomata Projesi");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        yazi_alani.setColumns(20);
+        yazi_alani.setRows(5);
+        jScrollPane1.setViewportView(yazi_alani);
 
-        jButton1.setText("NFA OLUŞTUR");
+        nfa_olustur_buton.setText("NFA OLUŞTUR");
 
-        jButton2.setText("DFA OLUŞTUR");
+        dfa_olustur_buton.setText("DFA OLUŞTUR");
 
         cizimin_yapilacagi_alan.setText("ÇİZİM YAPILACAK ALAN");
 
@@ -62,14 +74,29 @@ public class OtomataMain extends javax.swing.JFrame {
 
         dosyaAc_buton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
         dosyaAc_buton.setText("Dosya Aç");
+        dosyaAc_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dosyaAc_butonActionPerformed(evt);
+            }
+        });
         Mdosya_buton.add(dosyaAc_buton);
 
         dosyaKaydet_buton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         dosyaKaydet_buton.setText("Dosya Kaydet");
+        dosyaKaydet_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dosyaKaydet_butonActionPerformed(evt);
+            }
+        });
         Mdosya_buton.add(dosyaKaydet_buton);
 
         cikis_buton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         cikis_buton.setText("Çıkış");
+        cikis_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cikis_butonActionPerformed(evt);
+            }
+        });
         Mdosya_buton.add(cikis_buton);
 
         jMenuBar1.add(Mdosya_buton);
@@ -78,6 +105,11 @@ public class OtomataMain extends javax.swing.JFrame {
 
         yardim_buton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
         yardim_buton.setText("Yardım");
+        yardim_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yardim_butonActionPerformed(evt);
+            }
+        });
         jMenu4.add(yardim_buton);
 
         hakkimizda_buton.setText("Hakkımızda");
@@ -110,9 +142,9 @@ public class OtomataMain extends javax.swing.JFrame {
                     .addComponent(cizimin_yapilacagi_alan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 892, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -123,8 +155,8 @@ public class OtomataMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
+                    .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(cizimin_yapilacagi_alan, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
                 .addContainerGap())
@@ -132,6 +164,62 @@ public class OtomataMain extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void dosyaAc_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dosyaAc_butonActionPerformed
+        JFileChooser fc = new JFileChooser();
+        int i = fc.showOpenDialog(this);     
+        if(i == JFileChooser.APPROVE_OPTION){           
+            File file = fc.getSelectedFile();
+            String icerik = "";
+            
+            try(Scanner scanner = new Scanner(new BufferedReader(new FileReader(file)))){
+                
+                while(scanner.hasNextLine()){
+                    
+                    icerik += scanner.nextLine() + "\n";
+                    
+                }
+                yazi_alani.setText(icerik);
+                
+            } catch (FileNotFoundException ex) {    //Dosya Bulunamadı Hatası!
+                Logger.getLogger(OtomataMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_dosyaAc_butonActionPerformed
+
+    private void dosyaKaydet_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dosyaKaydet_butonActionPerformed
+        JFileChooser fc = new JFileChooser();
+        int cevap = fc.showSaveDialog(this);
+        
+        if(cevap == JFileChooser.APPROVE_OPTION){
+            
+            String dosya_yolu = fc.getSelectedFile().getPath(); //Seçilen dosyanın "dosya yolunu alma" işlemi yapılmakta. getPath() = dosya yolu
+        
+            try(FileWriter writer = new FileWriter(dosya_yolu)){
+                
+                writer.write(yazi_alani.getText());
+                
+                
+            } catch (IOException ex) {
+                Logger.getLogger(OtomataMain.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        }
+    }//GEN-LAST:event_dosyaKaydet_butonActionPerformed
+
+    private void cikis_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cikis_butonActionPerformed
+        System.exit(0);            
+    }//GEN-LAST:event_cikis_butonActionPerformed
+
+    private void yardim_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yardim_butonActionPerformed
+        JOptionPane.showMessageDialog(this, "Harflerle Düğüm Kümeleri Belirlenir；\n" +
+                    "(0,1,$),(a,b,$) ile gidilecek durumlar belirlenir örnek bir girdi Aşağıdaki gibidir\n" +
+                    "S->0A|1D|$\n" +
+                    "A->1B|$\n" +
+                    "B->1D|0A|$\n" +
+                    "D->0C|1B\n" +
+                    "C->0A|1D");            //DAHA SONRA BURASI DÜZENLENECEK!!!!
+    }//GEN-LAST:event_yardim_butonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -172,19 +260,19 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JMenu Mdosya_buton;
     private javax.swing.JMenuItem cikis_buton;
     private javax.swing.JLabel cizimin_yapilacagi_alan;
+    private javax.swing.JButton dfa_olustur_buton;
     private javax.swing.JMenuItem dosyaAc_buton;
     private javax.swing.JMenuItem dosyaKaydet_buton;
     private javax.swing.JMenuItem hakkimizda_buton;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JButton nfa_olustur_buton;
     private javax.swing.JMenuItem ornekBir_buton;
     private javax.swing.JMenuItem ornekUc_buton;
     private javax.swing.JMenuItem ornekiki_buton;
     private javax.swing.JMenuItem yardim_buton;
+    private javax.swing.JTextArea yazi_alani;
     // End of variables declaration//GEN-END:variables
 }
