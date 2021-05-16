@@ -326,13 +326,13 @@ public class OtomataMain extends javax.swing.JFrame {
     }//GEN-LAST:event_cikis_butonActionPerformed
 
     private void yardim_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yardim_butonActionPerformed
-        JOptionPane.showMessageDialog(this, "Harflerle Düğüm Kümeleri Belirlenir；\n" +
-                    "(0,1,$),(a,b,$) ile gidilecek durumlar belirlenir örnek bir girdi Aşağıdaki gibidir\n" +
-                    "S->0A|1D|$\n" +
-                    "A->1B|$\n" +
-                    "B->1D|0A|$\n" +
-                    "D->0C|1B\n" +
-                    "C->0A|1D");            //DAHA SONRA BURASI DÜZENLENECEK!!!!
+        JOptionPane.showMessageDialog(this, "Örnekler menüsüne tıklayarak örnekler girebilirsiniz."
+                + "\nGirilen Regex ifadesinde yalnızca '|' , '*' sembolleri kullanılabilir."
+                + "\nProgram Concat işlemini kendi algılamaktadır."
+                + "\n'&' sembolünü girmenize gerek yoktur."
+                + "\nRegex ifadesini girdikten sonra 'NFA OLUŞTUR' butonuna tıklarsanız yeni bir ekran açılacaktır ve NFA hali orada çizilecektir."
+                + "\nRegex ifadesini girdikten sonra 'DFA OLUŞTUR' butonuna tıklarsanız yeni bir ekran açılacaktır ve DFA hali orada çizilecektir."
+                + "\nRegex ifadesini girdikten sonra 'Detay Göster' butonuna tıklarsanız Parse (ayrıştırma) işlemini ve PostFix'e dönüşüm işlemini görebilirsiniz.");            
     }//GEN-LAST:event_yardim_butonActionPerformed
 
     private void hakkimizda_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hakkimizda_butonActionPerformed
@@ -341,27 +341,19 @@ public class OtomataMain extends javax.swing.JFrame {
     }//GEN-LAST:event_hakkimizda_butonActionPerformed
 
     private void ornekBir_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ornekBir_butonActionPerformed
-        String ornekbir = "S->0A|1D|$\n" +
-                            "A->1B|$\n" +
-                            "B->1D|0A|$\n" +
-                            "D->0C|1B\n" +
-                            "C->0A|1D";
+        String ornekbir = "ab|b";
         
         yazi_alani.setText(ornekbir);
     }//GEN-LAST:event_ornekBir_butonActionPerformed
 
     private void ornekiki_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ornekiki_butonActionPerformed
-        String ornekiki = "A->1B|$C|$\n" +
-                          "B->0B|0C|1C\n" +
-                          "C->0A ";
+        String ornekiki = "a(a|b)*b";
         
         yazi_alani.setText(ornekiki);
     }//GEN-LAST:event_ornekiki_butonActionPerformed
 
     private void ornekUc_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ornekUc_butonActionPerformed
-        String ornekuc = "A->0A|1A|0B\n" +
-                         "B->1C\n" +
-                         "C->$";
+        String ornekuc = "ab(a|ba*)*";
         
         yazi_alani.setText(ornekuc);
     }//GEN-LAST:event_ornekUc_butonActionPerformed
@@ -400,11 +392,11 @@ public class OtomataMain extends javax.swing.JFrame {
         
         String regextString = yazi_alani.getText();
         Regex regex1 = new Regex(regextString);
-        String ilksonuc = "Regex'in Parse Edilmiş Hali: "+ regex1.getAyristilan();
+        String ilksonuc = "Regex'in Parse Edilmiş Hali:\t\t"+ regex1.getAyristilan();
         detaygoster_alani.setText(ilksonuc);
         regex1.reset();
         PostFix postfix = new PostFix();
-        detaygoster_alani.setText(ilksonuc + "\n" + "Parse edilmiş regexin postfix hali: " + postfix.transformInfixtoPostfix(regex1.getAyristilan()));
+        detaygoster_alani.setText(ilksonuc + "\n" + "Parse Edilmiş Regex'in Postfix Hali: \t" + postfix.transformInfixtoPostfix(regex1.getAyristilan()));
         
     }//GEN-LAST:event_detay_butonActionPerformed
 
