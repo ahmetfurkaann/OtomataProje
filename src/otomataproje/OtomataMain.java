@@ -31,6 +31,7 @@ public class OtomataMain extends javax.swing.JFrame {
      */
     public OtomataMain() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -47,7 +48,10 @@ public class OtomataMain extends javax.swing.JFrame {
         yazi_alani = new javax.swing.JTextArea();
         nfa_olustur_buton = new javax.swing.JButton();
         dfa_olustur_buton = new javax.swing.JButton();
-        cizimin_yapilacagi_alan = new javax.swing.JLabel();
+        detay_buton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        detaygoster_alani = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         Mdosya_buton = new javax.swing.JMenu();
         dosyaAc_buton = new javax.swing.JMenuItem();
@@ -74,6 +78,7 @@ public class OtomataMain extends javax.swing.JFrame {
         setTitle("Otomata Projesi");
 
         yazi_alani.setColumns(20);
+        yazi_alani.setFont(new java.awt.Font("Courier New", 1, 18)); // NOI18N
         yazi_alani.setRows(5);
         jScrollPane1.setViewportView(yazi_alani);
 
@@ -81,7 +86,23 @@ public class OtomataMain extends javax.swing.JFrame {
 
         dfa_olustur_buton.setText("DFA OLUŞTUR");
 
-        cizimin_yapilacagi_alan.setText("ÇİZİM YAPILACAK ALAN");
+        detay_buton.setText("DETAY GÖSTER");
+        detay_buton.setMaximumSize(new java.awt.Dimension(106, 25));
+        detay_buton.setMinimumSize(new java.awt.Dimension(106, 25));
+        detay_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                detay_butonActionPerformed(evt);
+            }
+        });
+
+        detaygoster_alani.setEditable(false);
+        detaygoster_alani.setColumns(20);
+        detaygoster_alani.setFont(new java.awt.Font("Courier New", 0, 18)); // NOI18N
+        detaygoster_alani.setRows(5);
+        jScrollPane2.setViewportView(detaygoster_alani);
+
+        jLabel1.setFont(new java.awt.Font("Courier New", 0, 14)); // NOI18N
+        jLabel1.setText("Lütfen aşağıdaki metin alanı bir regex ifadesi giriniz:");
 
         Mdosya_buton.setText("Dosya");
 
@@ -222,28 +243,36 @@ public class OtomataMain extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(cizimin_yapilacagi_alan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                        .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(33, 33, 33)
                         .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 892, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 100, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
+                .addGap(10, 10, 10)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(cizimin_yapilacagi_alan, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                    .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -366,6 +395,19 @@ public class OtomataMain extends javax.swing.JFrame {
         yazi_alani.setFont(font);
     }//GEN-LAST:event_timesnewroman_butonActionPerformed
 
+    private void detay_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detay_butonActionPerformed
+        
+        
+        String regextString = yazi_alani.getText();
+        Regex regex1 = new Regex(regextString);
+        String ilksonuc = "Regex'in Parse Edilmiş Hali: "+ regex1.getAyristilan();
+        detaygoster_alani.setText(ilksonuc);
+        regex1.reset();
+        PostFix postfix = new PostFix();
+        detaygoster_alani.setText(ilksonuc + "\n" + "Parse edilmiş regexin postfix hali: " + postfix.transformInfixtoPostfix(regex1.getAyristilan()));
+        
+    }//GEN-LAST:event_detay_butonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -406,12 +448,14 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem arial_buton;
     private javax.swing.JMenuItem calibri_buton;
     private javax.swing.JMenuItem cikis_buton;
-    private javax.swing.JLabel cizimin_yapilacagi_alan;
     private javax.swing.JMenuItem couriernew_buton;
+    private javax.swing.JButton detay_buton;
+    private javax.swing.JTextArea detaygoster_alani;
     private javax.swing.JButton dfa_olustur_buton;
     private javax.swing.JMenuItem dosyaAc_buton;
     private javax.swing.JMenuItem dosyaKaydet_buton;
     private javax.swing.JMenuItem hakkimizda_buton;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu4;
@@ -419,6 +463,7 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton nfa_olustur_buton;
     private javax.swing.JMenuItem ornekBir_buton;
     private javax.swing.JMenuItem ornekUc_buton;
