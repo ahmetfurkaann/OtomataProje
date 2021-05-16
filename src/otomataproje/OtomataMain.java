@@ -368,7 +368,7 @@ public class OtomataMain extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void couriernew_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_couriernew_butonActionPerformed
-        Font font = new Font("Courier New", Font.PLAIN, 20);          
+        Font font = new Font("Courier New", Font.BOLD, 20);          
         yazi_alani.setFont(font);
     }//GEN-LAST:event_couriernew_butonActionPerformed
 
