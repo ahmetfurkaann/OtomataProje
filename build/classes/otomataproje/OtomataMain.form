@@ -197,14 +197,12 @@
                   <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="nfa_olustur_buton" min="-2" pref="131" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                      <Component id="dfa_olustur_buton" min="-2" pref="130" max="-2" attributes="0"/>
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="detay_buton" min="-2" pref="130" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="jLabel1" min="-2" pref="618" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="100" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="215" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -220,12 +218,11 @@
               <Component id="jScrollPane1" min="-2" pref="191" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="dfa_olustur_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="nfa_olustur_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="detay_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="249" max="32767" attributes="0"/>
+              <Component id="jScrollPane2" pref="335" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -256,11 +253,6 @@
     <Component class="javax.swing.JButton" name="nfa_olustur_buton">
       <Properties>
         <Property name="text" type="java.lang.String" value="NFA OLU&#x15e;TUR"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JButton" name="dfa_olustur_buton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="DFA OLU&#x15e;TUR"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="detay_buton">

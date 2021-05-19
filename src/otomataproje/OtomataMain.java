@@ -47,7 +47,6 @@ public class OtomataMain extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         yazi_alani = new javax.swing.JTextArea();
         nfa_olustur_buton = new javax.swing.JButton();
-        dfa_olustur_buton = new javax.swing.JButton();
         detay_buton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         detaygoster_alani = new javax.swing.JTextArea();
@@ -83,8 +82,6 @@ public class OtomataMain extends javax.swing.JFrame {
         jScrollPane1.setViewportView(yazi_alani);
 
         nfa_olustur_buton.setText("NFA OLUŞTUR");
-
-        dfa_olustur_buton.setText("DFA OLUŞTUR");
 
         detay_buton.setText("DETAY GÖSTER");
         detay_buton.setMaximumSize(new java.awt.Dimension(106, 25));
@@ -250,13 +247,11 @@ public class OtomataMain extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
-                        .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 100, Short.MAX_VALUE)))
+                        .addGap(0, 215, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -268,11 +263,10 @@ public class OtomataMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(23, 23, 23)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 249, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -396,9 +390,22 @@ public class OtomataMain extends javax.swing.JFrame {
         detaygoster_alani.setText(ilksonuc);
         regex1.reset();
         PostFix postfix = new PostFix();
-        detaygoster_alani.setText(ilksonuc + "\n" + "Parse Edilmiş Regex'in Postfix Hali: \t" + postfix.transformInfixtoPostfix(regex1.getAyristilan()));
+        String sonuc2= ilksonuc + "\n\n" + "Parse Edilmiş Regex'in Postfix Hali: \t" + postfix.transformInfixtoPostfix(regex1.getAyristilan() );
+        detaygoster_alani.setText(sonuc2);       
+        detaygoster_alani.setText(sonuc2 + "\n\n" + "NFA çıktısı şu şekilde olacaktır:\n\n" + regex1.transformNFA());
+        regex1.reset();
+        
+        String dot_kod = String.valueOf(regex1.transformNFA());
+    
+    try(FileWriter dotKoduOlustur=new FileWriter("Graphviz.dot")){
+        dotKoduOlustur.write("");
+        dotKoduOlustur.write(dot_kod);
+        } catch (IOException ex) {
+            System.out.println("dosya oluşturulurken hata oluştu");
+        }    
         
     }//GEN-LAST:event_detay_butonActionPerformed
+
 
     /**
      * @param args the command line arguments
@@ -443,7 +450,6 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem couriernew_buton;
     private javax.swing.JButton detay_buton;
     private javax.swing.JTextArea detaygoster_alani;
-    private javax.swing.JButton dfa_olustur_buton;
     private javax.swing.JMenuItem dosyaAc_buton;
     private javax.swing.JMenuItem dosyaKaydet_buton;
     private javax.swing.JMenuItem hakkimizda_buton;
