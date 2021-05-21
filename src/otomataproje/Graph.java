@@ -186,13 +186,13 @@ public class Graph {
 
     @Override
     public String toString() {
-        /*String yazdir = "\nBaşlangıç: " + "s" +this.start + " Son: " + "s" + this.end + "\n";
+       /* String yazdir = "\nBaşlangıç: " + "s" +this.start + " Son: " + "s" + this.end + "\n";
         for(int i = 0; i < kenarlar.size();i++){
             yazdir += kenarlar.get(i) + "\n";
         }
         return yazdir;*/
         
-        String yazdir = "digraph \"graph\" {\nstart [shape=point]" + "\nstart " + "-> s" +this.start + "\n" + "s" + this.end + "[shape= doublecircle]\n";
+        String yazdir = "digraph \"graph\" {\nrankdir = LR;\nstart [shape=point]" + "\nstart " + "-> s" +this.start + "\n" + "s" + this.end + "[shape= doublecircle]\n";
         for(int i = 0; i < kenarlar.size();i++){
             yazdir += kenarlar.get(i) + "\n";
         }

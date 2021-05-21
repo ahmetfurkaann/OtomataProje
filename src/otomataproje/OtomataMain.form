@@ -78,6 +78,14 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ornekUc_butonActionPerformed"/>
               </Events>
             </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="ornekdort_buton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="&#xd6;rnek 4"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ornekdort_butonActionPerformed"/>
+              </Events>
+            </MenuItem>
           </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="jMenu4">
@@ -200,10 +208,11 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="detay_buton" min="-2" pref="130" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" pref="618" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="215" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="338" max="32767" attributes="0"/>
                   </Group>
+                  <Component id="dot_bilgiLabel" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -221,8 +230,10 @@
                   <Component id="nfa_olustur_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="detay_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" pref="335" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="dot_bilgiLabel" pref="44" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" min="-2" pref="304" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -294,6 +305,16 @@
           <Font name="Courier New" size="14" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="L&#xfc;tfen a&#x15f;a&#x11f;&#x131;daki metin alan&#x131; bir regex ifadesi giriniz:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="dot_bilgiLabel">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Courier New" size="14" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="99" red="0" type="rgb"/>
+        </Property>
       </Properties>
     </Component>
   </SubComponents>
