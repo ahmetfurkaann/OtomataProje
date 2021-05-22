@@ -107,10 +107,10 @@ public class Graph {
     public void addStar(Graph graph){       //DÜZELTİLDİ
         Node begNode = new Node();
         Node endNode = new Node();
-        Kenar kenar1 = new Kenar(begNode, endNode, "ε");
-        Kenar kenar2 = new Kenar(begNode, graph.getStart(), "ε");
-        Kenar kenar3 = new Kenar(graph.getEnd(), endNode, "ε");
-        Kenar kenar4 = new Kenar(graph.getEnd(), graph.getStart(), "ε");
+        Kenar kenar1 = new Kenar(begNode, endNode, ":E:");
+        Kenar kenar2 = new Kenar(begNode, graph.getStart(), ":E:");
+        Kenar kenar3 = new Kenar(graph.getEnd(), endNode, ":E:");
+        Kenar kenar4 = new Kenar(graph.getEnd(), graph.getStart(), ":E:");
         for(int i = 0; i<graph.getKenarlar().size(); i++){
             this.kenarlar.add(graph.getKenarlar().get(i));
         }
@@ -130,10 +130,10 @@ public class Graph {
     public void addUnion(Graph graph1, Graph graph2){   //BU DOĞRU
         Node begNode = new Node();
         Node endNode = new Node();   
-        Kenar kenar1 = new Kenar(begNode, graph1.getStart(), "ε");
-        Kenar kenar2 = new Kenar(begNode, graph2.getStart(), "ε");
-        Kenar kenar3 = new Kenar(graph1.getEnd(), endNode, "ε");
-        Kenar kenar4 = new Kenar(graph2.getEnd(), endNode, "ε");
+        Kenar kenar1 = new Kenar(begNode, graph1.getStart(), ":E:");
+        Kenar kenar2 = new Kenar(begNode, graph2.getStart(), ":E:");
+        Kenar kenar3 = new Kenar(graph1.getEnd(), endNode, ":E:");
+        Kenar kenar4 = new Kenar(graph2.getEnd(), endNode, ":E:");
         this.start = begNode;
         this.end = endNode;
         for(int i=0; i<graph1.getKenarlar().size(); i++){
@@ -152,7 +152,7 @@ public class Graph {
 ////////////////////////////////////////////////////////////////////////////////////
  
     public void addConcat(Graph graph1, Graph graph2) {     //BU DOĞRU
-	Kenar kenar1 = new Kenar(graph1.getEnd(), graph2.getStart(), "ε"); 
+	Kenar kenar1 = new Kenar(graph1.getEnd(), graph2.getStart(), ":E:"); 
 	this.start = graph1.getStart();
 	this.end = graph2.getEnd();
 	for (int i = 0; i < graph1.getKenarlar().size(); i++) {

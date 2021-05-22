@@ -32,6 +32,8 @@ public class OtomataMain extends javax.swing.JFrame {
      * Creates new form OtomataMain
      */
     
+    String dosyaKonumu = "C:\\Users\\MONSTER\\Documents\\NetBeansProjects\\OtomataProje";
+    
     private BufferedImage image;
     public OtomataMain() {
         initComponents();
@@ -56,6 +58,7 @@ public class OtomataMain extends javax.swing.JFrame {
         detaygoster_alani = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
         dot_bilgiLabel = new javax.swing.JLabel();
+        dosyakonum_ekle = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Mdosya_buton = new javax.swing.JMenu();
         dosyaAc_buton = new javax.swing.JMenuItem();
@@ -66,6 +69,7 @@ public class OtomataMain extends javax.swing.JFrame {
         ornekiki_buton = new javax.swing.JMenuItem();
         ornekUc_buton = new javax.swing.JMenuItem();
         ornekdort_buton = new javax.swing.JMenuItem();
+        ornekbes_buton = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         yardim_buton = new javax.swing.JMenuItem();
         hakkimizda_buton = new javax.swing.JMenuItem();
@@ -114,6 +118,13 @@ public class OtomataMain extends javax.swing.JFrame {
 
         dot_bilgiLabel.setFont(new java.awt.Font("Courier New", 1, 14)); // NOI18N
         dot_bilgiLabel.setForeground(new java.awt.Color(0, 153, 0));
+
+        dosyakonum_ekle.setText("DOSYA KONUMU EKLE");
+        dosyakonum_ekle.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dosyakonum_ekleActionPerformed(evt);
+            }
+        });
 
         Mdosya_buton.setText("Dosya");
 
@@ -179,6 +190,14 @@ public class OtomataMain extends javax.swing.JFrame {
             }
         });
         jMenu5.add(ornekdort_buton);
+
+        ornekbes_buton.setText("Örnek 5");
+        ornekbes_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ornekbes_butonActionPerformed(evt);
+            }
+        });
+        jMenu5.add(ornekbes_buton);
 
         jMenuBar1.add(jMenu5);
 
@@ -273,7 +292,8 @@ public class OtomataMain extends javax.swing.JFrame {
                         .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 353, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 181, Short.MAX_VALUE)
+                        .addComponent(dosyakonum_ekle, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(dot_bilgiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -281,7 +301,9 @@ public class OtomataMain extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(dosyakonum_ekle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -438,7 +460,7 @@ public class OtomataMain extends javax.swing.JFrame {
         yazi_alani.setText(ornekdort);
     }//GEN-LAST:event_ornekdort_butonActionPerformed
 
-    int tiklanma = 1;
+   
     
     
     private void nfa_olustur_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nfa_olustur_butonActionPerformed
@@ -449,7 +471,7 @@ public class OtomataMain extends javax.swing.JFrame {
             dot_bilgiLabel.setText("Girdiğiniz NFA'nin grafı başarılı bir şekilde oluşturulmuştur. Lütfen dosyaların bulunduğu konumu kontrol ediniz.");       
             try
             {
-                Runtime.getRuntime().exec("cmd.exe /c cd C:\\Users\\MONSTER\\Documents\\NetBeansProjects\\OtomataProje & start cmd.exe /k \"dot -Tpng Graphviz.dot -o GraphvizCikti"+tiklanma+".png\"");
+                Runtime.getRuntime().exec("cmd.exe /c cd "+dosyaKonumu+" & start cmd.exe /k \"dot -Tpng Graphviz.dot -o GraphvizCikti.png\"");
                 Thread.sleep(2000);
                 Runtime.getRuntime().exec("taskkill /f /im cmd.exe");
             }
@@ -463,7 +485,7 @@ public class OtomataMain extends javax.swing.JFrame {
             
             Thread.sleep(2500);
             
-            File f = new File("C:\\Users\\MONSTER\\Documents\\NetBeansProjects\\OtomataProje\\GraphvizCikti"+getTiklanma()+".png");
+            File f = new File(dosyaKonumu+"\\GraphvizCikti.png");
             Desktop d = Desktop.getDesktop();
             d.open(f);
             
@@ -473,12 +495,21 @@ public class OtomataMain extends javax.swing.JFrame {
             Logger.getLogger(OtomataMain.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        tiklanma++;
+      
     }//GEN-LAST:event_nfa_olustur_butonActionPerformed
 
-    public int getTiklanma() {
-        return tiklanma;  //Desktop fonksiyonu hep +1'ini buluyor. O yuzden -1 ekledim.
-    }
+    private void ornekbes_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ornekbes_butonActionPerformed
+        String ornekbes = "(a|b)*abb(a|b)*(abb*|ba)a*";
+        yazi_alani.setText(ornekbes);
+    }//GEN-LAST:event_ornekbes_butonActionPerformed
+
+    private void dosyakonum_ekleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dosyakonum_ekleActionPerformed
+        DosyaKonumu konum = new DosyaKonumu();
+        konum.setVisible(true);
+        dosyaKonumu = konum.getKonum();
+    }//GEN-LAST:event_dosyakonum_ekleActionPerformed
+
+
 
 
     /**
@@ -526,6 +557,7 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JTextArea detaygoster_alani;
     private javax.swing.JMenuItem dosyaAc_buton;
     private javax.swing.JMenuItem dosyaKaydet_buton;
+    private javax.swing.JButton dosyakonum_ekle;
     private javax.swing.JLabel dot_bilgiLabel;
     private javax.swing.JMenuItem hakkimizda_buton;
     private javax.swing.JLabel jLabel1;
@@ -540,6 +572,7 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JButton nfa_olustur_buton;
     private javax.swing.JMenuItem ornekBir_buton;
     private javax.swing.JMenuItem ornekUc_buton;
+    private javax.swing.JMenuItem ornekbes_buton;
     private javax.swing.JMenuItem ornekdort_buton;
     private javax.swing.JMenuItem ornekiki_buton;
     private javax.swing.JMenuItem timesnewroman_buton;
