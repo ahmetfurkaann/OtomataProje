@@ -57,40 +57,26 @@ public class Graph {
         Node.reset();               // id = 0 işlemini yapıyor.
     }
 //      ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    
-       
-//      ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-    
+   
     
     public void Star(Object obj){   //Burada girilen ifadenin karakter mi yoksa Graph mı olduğunu kontrol etmeliyiz.
-        if(obj.getClass().getName().equals(Graph.class.getName())){
-            addStar((Graph)obj);
-        }
+        addStar((Graph)obj);       
     }
 
 //      ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     public void Union(Object obj1, Object obj2){    
-	if (obj1.getClass().getName().equals(Graph.class.getName())) {          
-            if (obj2.getClass().getName().equals(Graph.class.getName())) {
-		addUnion((Graph) obj1, (Graph) obj2);
-                    return;
+        addUnion((Graph) obj1, (Graph) obj2);                  
 		}
-	}
-    }
+	
     
 //      ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
     
     
     public void Concat(Object obj1, Object obj2){
-        
-	if (obj1.getClass().getName().equals(Graph.class.getName())) {
-            if (obj2.getClass().getName().equals(Graph.class.getName())) {
-		addConcat((Graph) obj1, (Graph) obj2);
-                    return;
+        addConcat((Graph) obj1, (Graph) obj2);                
 		}
-            }
-        }   
+       
 
 //      ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
@@ -104,6 +90,7 @@ public class Graph {
             return false;       //Karakter veya sayı değilse sembol olur.
         }
     }  
+    
     /////////////////////////////////////////////////////////////////////////
     
     public void alfabeNFA(char c){             
@@ -165,11 +152,7 @@ public class Graph {
 ////////////////////////////////////////////////////////////////////////////////////
  
     public void addConcat(Graph graph1, Graph graph2) {     //BU DOĞRU
-        //Node epbegnode = new Node();
-        //Node ependnode = new Node();
-       // Node midNode = new Node();
 	Kenar kenar1 = new Kenar(graph1.getEnd(), graph2.getStart(), "ε"); 
-        // kenar2 = new Kenar(midNode, graph2.getStart(), "ε");
 	this.start = graph1.getStart();
 	this.end = graph2.getEnd();
 	for (int i = 0; i < graph1.getKenarlar().size(); i++) {
@@ -178,15 +161,14 @@ public class Graph {
 	for (int i = 0; i < graph2.getKenarlar().size(); i++) {
 		this.kenarlar.add(graph2.getKenarlar().get(i));
 	}
-	this.kenarlar.add(kenar1);
-        //this.kenarlar.add(kenar2);
+            this.kenarlar.add(kenar1);
 	}
  
 /////////////////////////////////////////////////////////////////////////////////////
 
     @Override
     public String toString() {
-       /* String yazdir = "\nBaşlangıç: " + "s" +this.start + " Son: " + "s" + this.end + "\n";
+        /*String yazdir = "\nBaşlangıç: " + "s" +this.start + " Son: " + "s" + this.end + "\n";
         for(int i = 0; i < kenarlar.size();i++){
             yazdir += kenarlar.get(i) + "\n";
         }

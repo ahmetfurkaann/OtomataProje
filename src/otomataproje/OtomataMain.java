@@ -6,7 +6,9 @@
 package otomataproje;
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.Font;
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -29,6 +31,8 @@ public class OtomataMain extends javax.swing.JFrame {
     /**
      * Creates new form OtomataMain
      */
+    
+    private BufferedImage image;
     public OtomataMain() {
         initComponents();
         setLocationRelativeTo(null);
@@ -84,6 +88,11 @@ public class OtomataMain extends javax.swing.JFrame {
         jScrollPane1.setViewportView(yazi_alani);
 
         nfa_olustur_buton.setText("NFA OLUŞTUR");
+        nfa_olustur_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nfa_olustur_butonActionPerformed(evt);
+            }
+        });
 
         detay_buton.setText("DETAY GÖSTER");
         detay_buton.setMaximumSize(new java.awt.Dimension(106, 25));
@@ -264,7 +273,7 @@ public class OtomataMain extends javax.swing.JFrame {
                         .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 618, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 338, Short.MAX_VALUE))
+                        .addGap(0, 353, Short.MAX_VALUE))
                     .addComponent(dot_bilgiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
@@ -280,9 +289,9 @@ public class OtomataMain extends javax.swing.JFrame {
                     .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dot_bilgiLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dot_bilgiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -341,7 +350,6 @@ public class OtomataMain extends javax.swing.JFrame {
                 + "\nProgram Concat işlemini kendi algılamaktadır."
                 + "\n'&' sembolünü girmenize gerek yoktur."
                 + "\nRegex ifadesini girdikten sonra 'NFA OLUŞTUR' butonuna tıklarsanız yeni bir ekran açılacaktır ve NFA hali orada çizilecektir."
-                + "\nRegex ifadesini girdikten sonra 'DFA OLUŞTUR' butonuna tıklarsanız yeni bir ekran açılacaktır ve DFA hali orada çizilecektir."
                 + "\nRegex ifadesini girdikten sonra 'Detay Göster' butonuna tıklarsanız Parse (ayrıştırma) işlemini ve PostFix'e dönüşüm işlemini görebilirsiniz.");            
     }//GEN-LAST:event_yardim_butonActionPerformed
 
@@ -403,11 +411,8 @@ public class OtomataMain extends javax.swing.JFrame {
         Regex regex1 = new Regex(regextString);
         String ilksonuc = "Regex'in Parse Edilmiş Hali:\t\t"+ regex1.getAyristilan();
         detaygoster_alani.setText(ilksonuc);
-        regex1.reset();
-        PostFix postfix = new PostFix();
-        String sonuc2= ilksonuc + "\n\n" + "Parse Edilmiş Regex'in Postfix Hali: \t" + postfix.transformInfixtoPostfix(regex1.getAyristilan() );
-        detaygoster_alani.setText(sonuc2);       
-        detaygoster_alani.setText(sonuc2 + "\n\n" + "NFA çıktısı şu şekilde olacaktır:\n\n" + regex1.transformNFA());
+        regex1.reset();       
+        detaygoster_alani.setText(ilksonuc + "\n\n" + "NFA çıktısı şu şekilde olacaktır:\n\n" + regex1.transformNFA());
         regex1.reset();
         
         String dot_kod = String.valueOf(regex1.transformNFA());
@@ -420,9 +425,7 @@ public class OtomataMain extends javax.swing.JFrame {
         }          
     
 
-    
-    dot_bilgiLabel.setText("Girdiğiniz NFA'nin grafı başarılı bir şekilde oluşturulmuştur. Lütfen dosyaların bulunduğu konumu kontrol ediniz.");
-    
+       
     
     
     }//GEN-LAST:event_detay_butonActionPerformed
@@ -434,6 +437,48 @@ public class OtomataMain extends javax.swing.JFrame {
         String ornekdort = "a(a|b)*b(a|a*)";
         yazi_alani.setText(ornekdort);
     }//GEN-LAST:event_ornekdort_butonActionPerformed
+
+    int tiklanma = 1;
+    
+    
+    private void nfa_olustur_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nfa_olustur_butonActionPerformed
+        
+        try
+        {
+            
+            dot_bilgiLabel.setText("Girdiğiniz NFA'nin grafı başarılı bir şekilde oluşturulmuştur. Lütfen dosyaların bulunduğu konumu kontrol ediniz.");       
+            try
+            {
+                Runtime.getRuntime().exec("cmd.exe /c cd C:\\Users\\MONSTER\\Documents\\NetBeansProjects\\OtomataProje & start cmd.exe /k \"dot -Tpng Graphviz.dot -o GraphvizCikti"+tiklanma+".png\"");
+                Thread.sleep(2000);
+                Runtime.getRuntime().exec("taskkill /f /im cmd.exe");
+            }
+            catch (Exception e)
+            {
+                System.out.println("Bilinmeyen bir hata oluştu.");
+                e.printStackTrace();
+            }
+            
+          
+            
+            Thread.sleep(2500);
+            
+            File f = new File("C:\\Users\\MONSTER\\Documents\\NetBeansProjects\\OtomataProje\\GraphvizCikti"+getTiklanma()+".png");
+            Desktop d = Desktop.getDesktop();
+            d.open(f);
+            
+        } catch (InterruptedException ex) {
+            Logger.getLogger(OtomataMain.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(OtomataMain.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        tiklanma++;
+    }//GEN-LAST:event_nfa_olustur_butonActionPerformed
+
+    public int getTiklanma() {
+        return tiklanma;  //Desktop fonksiyonu hep +1'ini buluyor. O yuzden -1 ekledim.
+    }
 
 
     /**

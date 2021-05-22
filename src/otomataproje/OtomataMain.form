@@ -210,7 +210,7 @@
                   </Group>
                   <Group type="102" attributes="0">
                       <Component id="jLabel1" min="-2" pref="618" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="338" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="353" max="32767" attributes="0"/>
                   </Group>
                   <Component id="dot_bilgiLabel" max="32767" attributes="0"/>
               </Group>
@@ -231,9 +231,9 @@
                   <Component id="detay_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="dot_bilgiLabel" pref="44" max="32767" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane2" min="-2" pref="304" max="-2" attributes="0"/>
+              <Component id="dot_bilgiLabel" min="-2" pref="48" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jScrollPane2" pref="400" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -265,6 +265,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="NFA OLU&#x15e;TUR"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nfa_olustur_butonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="detay_buton">
       <Properties>

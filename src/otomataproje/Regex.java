@@ -62,7 +62,7 @@ public class Regex {
 		else {
 			int i = 0;      //while döngüsü için kullanıldı.
 			operatorStack.push('#');
-			char[] alfabe = (ayristilan + "#").toCharArray();   //Burada # işareti alfabe harf dizimizin en sonune eklenmektedir. Örnek: a&b -> a&b#
+			char[] alfabe = (ayristilan + "#").toCharArray();   //Burada # işareti alfabe harf dizimizin en sonuna eklenmektedir. Örnek: a&b -> a&b#
                         
 			while (alfabe[i] != '#' || (Character) (operatorStack.peek()) != '#') {
 				if (KarakterveyaSayiMi(alfabe[i])) {
@@ -101,10 +101,10 @@ public class Regex {
 						}
 						break;
 					case 0:
-						operatorStack.pop();
-						i++;
+						operatorStack.pop();    //Parantezleri silme işleminde kullanılıyor.
+						i++;    //i 1 artınca ) işareti de otomatik olarak geçildi.
 						break;
-					case -1:    //Matrisin kesişen ifadesi -1 ise 
+					case -1:    //Matrisin kesişen ifadesi -1 ise (GENELLİKLE operatör üstünlüğü için kullanılır.)
 						operatorStack.push(alfabe[i]);      //Bunu operatorStack kısmına  ekle. 
 						i++;
 						break;
