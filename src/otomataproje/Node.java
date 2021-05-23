@@ -5,16 +5,13 @@
  */
 package otomataproje;
 
-/**
- *
- * @author MONSTER
- */
-public class Node {
+
+public class Node {   //Düğümlerin numarasını tutan sınıf
     
     private int id;
     private static int ID=0;
     
-    public Node(){
+    public Node(){   //Her çağırıldığında numara 1 artıyor.
     	this.id = ID++;
     }
  

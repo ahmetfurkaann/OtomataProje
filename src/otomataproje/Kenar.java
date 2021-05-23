@@ -5,13 +5,13 @@
  */
 package otomataproje;
 
-/**
- *
- * @author MONSTER
- */
+
+
+//DÜĞÜMLERİ BİRBİRİNE BAĞLAYAN KENARLARIN CLASS'I
+
 public class Kenar {
     
-    private Node begin;
+    private Node begin;     //Node türünden begin ve end oluşturduk.
     private Node end;
     private String etiket;
     private Kenar kenar;

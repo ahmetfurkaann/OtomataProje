@@ -9,6 +9,10 @@ package otomataproje;
  *
  * @author MONSTER
  */
+
+
+//DOSYA KONUMU SORUNUNU ÇÖZMEK İÇİN YAZILDI.
+
 public class DosyaKonumu extends javax.swing.JFrame {
 
     private String konum = "";
@@ -38,6 +42,7 @@ public class DosyaKonumu extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         konumgir_area = new javax.swing.JTextArea();
         tamam_buton = new javax.swing.JButton();
+        vazgec_buton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -55,6 +60,13 @@ public class DosyaKonumu extends javax.swing.JFrame {
             }
         });
 
+        vazgec_buton.setText("Vazgeç");
+        vazgec_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vazgec_butonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,7 +78,9 @@ public class DosyaKonumu extends javax.swing.JFrame {
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(tamam_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(vazgec_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32)
+                        .addComponent(tamam_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -77,7 +91,9 @@ public class DosyaKonumu extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(tamam_buton)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(tamam_buton)
+                    .addComponent(vazgec_buton))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -88,6 +104,10 @@ public class DosyaKonumu extends javax.swing.JFrame {
         konum = konumgir_area.getText();
         setVisible(false);
     }//GEN-LAST:event_tamam_butonActionPerformed
+
+    private void vazgec_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vazgec_butonActionPerformed
+        setVisible(false);
+    }//GEN-LAST:event_vazgec_butonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,5 +149,6 @@ public class DosyaKonumu extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea konumgir_area;
     private javax.swing.JButton tamam_buton;
+    private javax.swing.JButton vazgec_buton;
     // End of variables declaration//GEN-END:variables
 }

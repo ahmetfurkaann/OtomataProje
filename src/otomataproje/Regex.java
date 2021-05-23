@@ -9,7 +9,7 @@ public class Regex {
     private Stack operatorStack;        
     private Stack operandStack;  
     private int [][] oncelik = {
-		{ 1, 1, 1, -1, 1, 1 },// *&|()#         peek(), anlik
+		{ 1, 1, 1, -1, 1, 1 },// *&|()#         peek(), anlik   EXCEL'de tablo şekilde hazırlandı.
 		{ -1, 1, 1, -1, 1, 1 },
                 { -1, -1, 1, -1, 1, 1 },
 		{ -1, -1, -1, -1, 0, 2 },
@@ -17,25 +17,25 @@ public class Regex {
 		{ -1, -1, -1, -1, -1, -1 }        
     };
     
-    public int oncelikOperatoru(Character c1, Character c2){
+    public int oncelikOperatoru(Character c1, Character c2){    //sembollerin önceliklerini karşılaştırarak bir değer döndürüyoruz.
         String oncelikString = "*&|()#";
         return this.oncelik[oncelikString.indexOf(c1.toString())][oncelikString.indexOf(c2.toString())];
     }    
 
-    public Regex() {
+    public Regex() {   
 	ayristilan = "";
 	operatorStack = new Stack();
 	operandStack = new Stack();          
     }
  
-    public Regex(String girdi) {
+    public Regex(String girdi) {    //İçine regex verilirse constructer çalışır ve fonksiyona yollanır.
 	ayristilan = "";
 	operatorStack = new Stack();
 	operandStack = new Stack();
 	parcala(girdi);            
     }
 
-    public String getAyristilan() {
+    public String getAyristilan() { //Parse edilen stringi döndürür.
 	return ayristilan;
     }
  
@@ -56,25 +56,25 @@ public class Regex {
 
 ////////////////////////////////////////////////////////////    
 
-	public Graph transformNFA() {
-		if (ayristilan.length() == 0)
+	public Graph transformNFA() {   //Ayrıştırılan (parse edilen) regex'i buraya yollarız.
+		if (ayristilan.length() == 0)   //regex girilmediyse null değer dönmektedir.
 			return null;
 		else {
 			int i = 0;      //while döngüsü için kullanıldı.
-			operatorStack.push('#');
+			operatorStack.push('#');    //operatorStack'in en alt kısmına # koyuyoruz. (İlerleyen kodda döngüyü bitirmek için kullanacağız.)
 			char[] alfabe = (ayristilan + "#").toCharArray();   //Burada # işareti alfabe harf dizimizin en sonuna eklenmektedir. Örnek: a&b -> a&b#
                         
-			while (alfabe[i] != '#' || (Character) (operatorStack.peek()) != '#') {
-				if (KarakterveyaSayiMi(alfabe[i])) {
+			while (alfabe[i] != '#' || (Character) (operatorStack.peek()) != '#') { //o anki eleman # değilse veya operatorStack'in en üstündeki # değilse
+				if (KarakterveyaSayiMi(alfabe[i])) {    //karakter veya sayi mi diye kontrol ediyoruz.
                                     Graph graph0 = new Graph();
-                                    graph0.alfabeNFA(alfabe[i]);
-					operandStack.push(graph0);
+                                    graph0.alfabeNFA(alfabe[i]);        //girilen karakter grapha dönüştürülür.
+					operandStack.push(graph0);      //graphı stack'e ekliyoruz.
 					i++;
-				} else {                                            // &=1              * = 0          -1
-					int deger=oncelikOperatoru((Character)(operatorStack.peek()), alfabe[i]);
+				} else {                                            
+					int deger=oncelikOperatoru((Character)(operatorStack.peek()), alfabe[i]);   //operatörlerin önceliklerini karşılaştır.
 					switch (deger) {
 					case 1:
-						Character character=(Character)operatorStack.pop();
+						Character character=(Character)operatorStack.pop(); //stackten bir eleman çıkar
 						switch (character) {
 						case '*':
 							Object obj=operandStack.pop();
@@ -86,14 +86,14 @@ public class Regex {
 							Object obj2=operandStack.pop();
 							Object obj1=operandStack.pop();
 							Graph graph2=new Graph();                                                        
-							graph2.Concat(obj1, obj2);      //obj1 ile obj2'nin yeri çok önemli.
+							graph2.Concat(obj1, obj2);      //obj1 ile obj2'nin yeri çok önemli. ilk obj1 yollanmalıdır.
 							operandStack.push(graph2);
 							break;
 						case '|':
 							Object obj4=operandStack.pop();
 							Object obj3=operandStack.pop();
 							Graph graph3=new Graph();
-							graph3.Union(obj3, obj4);   //obj3 ile obj4'ün yeri çok önemli.
+							graph3.Union(obj3, obj4);   //obj3 ile obj4'ün yeri çok önemli. ilk obj3 yollanmalıdır.
 							operandStack.push(graph3);
 							break;
 						default:
@@ -113,7 +113,7 @@ public class Regex {
 					}
 				}
 			}
-			return (Graph) operandStack.pop();
+			return (Graph) operandStack.pop();  //en son kalan graphı döndür.
 		}
 	}
 

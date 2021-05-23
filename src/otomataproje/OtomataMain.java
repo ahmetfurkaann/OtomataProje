@@ -34,7 +34,7 @@ public class OtomataMain extends javax.swing.JFrame {
     
     String dosyaKonumu = "C:\\Users\\MONSTER\\Documents\\NetBeansProjects\\OtomataProje";
     
-    private BufferedImage image;
+    private BufferedImage image;    //Gerek kalmadı.
     public OtomataMain() {
         initComponents();
         setLocationRelativeTo(null);
@@ -371,8 +371,8 @@ public class OtomataMain extends javax.swing.JFrame {
                 + "\nGirilen Regex ifadesinde yalnızca '|' , '*' sembolleri kullanılabilir."
                 + "\nProgram Concat işlemini kendi algılamaktadır."
                 + "\n'&' sembolünü girmenize gerek yoktur."
-                + "\nRegex ifadesini girdikten sonra 'NFA OLUŞTUR' butonuna tıklarsanız yeni bir ekran açılacaktır ve NFA hali orada çizilecektir."
-                + "\nRegex ifadesini girdikten sonra 'Detay Göster' butonuna tıklarsanız Parse (ayrıştırma) işlemini ve PostFix'e dönüşüm işlemini görebilirsiniz.");            
+                + "\nRegex ifadesini girdikten sonra 'Detay Göster' butonuna tıklarsanız Parse (ayrıştırma) işlemini ve PostFix'e dönüşüm işlemini görebilirsiniz."
+                + "\nRegex ifadesini girdikten sonra 'NFA OLUŞTUR' butonuna tıklarsanız yeni bir ekran açılacaktır ve NFA hali orada çizilecektir.");            
     }//GEN-LAST:event_yardim_butonActionPerformed
 
     private void hakkimizda_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hakkimizda_butonActionPerformed
@@ -437,9 +437,10 @@ public class OtomataMain extends javax.swing.JFrame {
         detaygoster_alani.setText(ilksonuc + "\n\n" + "NFA çıktısı şu şekilde olacaktır:\n\n" + regex1.transformNFA());
         regex1.reset();
         
-        String dot_kod = String.valueOf(regex1.transformNFA());
+        String dot_kod = String.valueOf(regex1.transformNFA());     //valueof ile obje dönüşümü sağladık. "Graph cannot converted to String" hatasını engelledik.
+        
     
-    try(FileWriter dotKoduOlustur=new FileWriter("Graphviz.dot")){
+    try(FileWriter dotKoduOlustur=new FileWriter("Graphviz.dot")){  //Graphın resmini çıkartan kodu dışarı aktarır.
         dotKoduOlustur.write("");
         dotKoduOlustur.write(dot_kod);
         } catch (IOException ex) {
@@ -466,28 +467,23 @@ public class OtomataMain extends javax.swing.JFrame {
     private void nfa_olustur_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nfa_olustur_butonActionPerformed
         
         try
-        {
-            
+        {           
             dot_bilgiLabel.setText("Girdiğiniz NFA'nin grafı başarılı bir şekilde oluşturulmuştur. Lütfen dosyaların bulunduğu konumu kontrol ediniz.");       
             try
             {
-                Runtime.getRuntime().exec("cmd.exe /c cd "+dosyaKonumu+" & start cmd.exe /k \"dot -Tpng Graphviz.dot -o GraphvizCikti.png\"");
-                Thread.sleep(2000);
-                Runtime.getRuntime().exec("taskkill /f /im cmd.exe");
+                Runtime.getRuntime().exec("cmd.exe /c cd "+dosyaKonumu+" & start cmd.exe /k \"dot -Tpng Graphviz.dot -o GraphvizCikti.png\"");  //cmdde jar'ın bulunduğu konuma giriş yapar ve graphı .png olarak çıktı alır.
+                Thread.sleep(2000); //2 saniye bekle
+                Runtime.getRuntime().exec("taskkill /f /im cmd.exe");   //cmd'yi kapatır.
             }
-            catch (Exception e)
+            catch (Exception e) //Hata yakalama
             {
                 System.out.println("Bilinmeyen bir hata oluştu.");
                 e.printStackTrace();
             }
-            
-          
-            
-            Thread.sleep(2500);
-            
-            File f = new File(dosyaKonumu+"\\GraphvizCikti.png");
+            Thread.sleep(2500); //2.5 saniye bekkle          
+            File f = new File(dosyaKonumu+"\\GraphvizCikti.png");   
             Desktop d = Desktop.getDesktop();
-            d.open(f);
+            d.open(f);  //Graphın çıktısını (resmini) aç
             
         } catch (InterruptedException ex) {
             Logger.getLogger(OtomataMain.class.getName()).log(Level.SEVERE, null, ex);
