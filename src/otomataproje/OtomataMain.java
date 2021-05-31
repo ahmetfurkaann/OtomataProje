@@ -59,6 +59,7 @@ public class OtomataMain extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         dot_bilgiLabel = new javax.swing.JLabel();
         dosyakonum_ekle = new javax.swing.JButton();
+        dfa_olustur_buton = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         Mdosya_buton = new javax.swing.JMenu();
         dosyaAc_buton = new javax.swing.JMenuItem();
@@ -123,6 +124,13 @@ public class OtomataMain extends javax.swing.JFrame {
         dosyakonum_ekle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 dosyakonum_ekleActionPerformed(evt);
+            }
+        });
+
+        dfa_olustur_buton.setText("DFA OLUŞTUR");
+        dfa_olustur_buton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                dfa_olustur_butonActionPerformed(evt);
             }
         });
 
@@ -288,6 +296,8 @@ public class OtomataMain extends javax.swing.JFrame {
                     .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
@@ -308,8 +318,9 @@ public class OtomataMain extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(nfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(detay_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(dfa_olustur_buton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(dot_bilgiLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -369,10 +380,9 @@ public class OtomataMain extends javax.swing.JFrame {
     private void yardim_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yardim_butonActionPerformed
         JOptionPane.showMessageDialog(this, "Örnekler menüsüne tıklayarak örnekler girebilirsiniz."
                 + "\nGirilen Regex ifadesinde yalnızca '|' , '*' sembolleri kullanılabilir."
-                + "\nProgram Concat işlemini kendi algılamaktadır."
-                + "\n'&' sembolünü girmenize gerek yoktur."
-                + "\nRegex ifadesini girdikten sonra 'Detay Göster' butonuna tıklarsanız Parse (ayrıştırma) işlemini ve PostFix'e dönüşüm işlemini görebilirsiniz."
-                + "\nRegex ifadesini girdikten sonra 'NFA OLUŞTUR' butonuna tıklarsanız yeni bir ekran açılacaktır ve NFA hali orada çizilecektir.");            
+                + "\nProgram Concat işlemini kendi algılamaktadır. '&' sembolünü girmenize gerek yoktur."
+                + "\nRegex ifadesini girdikten sonra 'Detay Göster' butonuna tıklarsanız Parse (ayrıştırma) işlemini görebilirsiniz."
+                + "\nRegex ifadesini girdikten sonra 'NFA OLUŞTUR' butonuna tıklarsanız JAR dosyasının olduğu konuma Graph'ı çizdirecektir.");            
     }//GEN-LAST:event_yardim_butonActionPerformed
 
     private void hakkimizda_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hakkimizda_butonActionPerformed
@@ -505,6 +515,10 @@ public class OtomataMain extends javax.swing.JFrame {
         dosyaKonumu = konum.getKonum();
     }//GEN-LAST:event_dosyakonum_ekleActionPerformed
 
+    private void dfa_olustur_butonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dfa_olustur_butonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dfa_olustur_butonActionPerformed
+
 
 
 
@@ -551,6 +565,7 @@ public class OtomataMain extends javax.swing.JFrame {
     private javax.swing.JMenuItem couriernew_buton;
     private javax.swing.JButton detay_buton;
     private javax.swing.JTextArea detaygoster_alani;
+    private javax.swing.JButton dfa_olustur_buton;
     private javax.swing.JMenuItem dosyaAc_buton;
     private javax.swing.JMenuItem dosyaKaydet_buton;
     private javax.swing.JButton dosyakonum_ekle;

@@ -1,20 +1,14 @@
 digraph "graph" {
 rankdir = LR;
 start [shape=point]
-start -> s0
-s11[shape= doublecircle]
+start -> s6
+s7[shape= doublecircle]
 s0 -> s1 [label= "a"]
-s2 -> s3 [label= "a"]
+s2 -> s3 [label= "b"]
+s1 -> s2 [label= ":E:"]
 s4 -> s5 [label= "b"]
-s6 -> s2 [label= ":E:"]
+s6 -> s0 [label= ":E:"]
 s6 -> s4 [label= ":E:"]
 s3 -> s7 [label= ":E:"]
 s5 -> s7 [label= ":E:"]
-s8 -> s9 [label= ":E:"]
-s8 -> s6 [label= ":E:"]
-s7 -> s9 [label= ":E:"]
-s7 -> s6 [label= ":E:"]
-s1 -> s8 [label= ":E:"]
-s10 -> s11 [label= "b"]
-s9 -> s10 [label= ":E:"]
 }
