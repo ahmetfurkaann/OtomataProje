@@ -1,5 +1,11 @@
-# Otomata Proje
-Karadeniz Teknik Üniversitesi 
-Bilgisayar Mühendisliği Bölümü 2.Sınıf Otomata Teorisi Proje Ödevi Kodlarıdır.
-Bu kodlar Ahmet Furkan Bayram ve grubuna aittir. 
-Apache-2.0 License
+# Otomata Projesi
+
+Kullanıcın girdiği Regular Expression ifadesini NFA'ye dönüştürüp graphını çizdiren bir masaüstü uygulamasıdır.
+
+|Öğrenci Numarası|Ad Soyad   | Görevi  |
+| ------------ | ------------ | ------------ |
+| 394821  | Ahmet Furkan BAYRAM  | GUI Hazırlanması ve Durum Görselleştirmesi   |
+| 390921  | Hilal KÜÇÜK         |  RE'nin Ayrıştırılması |
+| 394801  | Yunus ARKAN      |  RE'nin NFA'e Dönüştürülmesi |
+| 383211  | Sümeyye AKKUŞ  |  RE'nin DFA'e Dönüştürülmesi |
+
