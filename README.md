@@ -9,6 +9,8 @@ Kullanıcın girdiği Regular Expression ifadesini NFA'ye dönüştürüp graph�
 | 394801  | Yunus ARKAN      |  RE'nin NFA'e Dönüştürülmesi |
 | 383211  | Sümeyye AKKUŞ  |  RE'nin DFA'e Dönüştürülmesi |
 
+------------
+
 ### GUI KULLANIMI
 
 ![](https://s6.gifyu.com/images/Otomata.gif)
