@@ -17,10 +17,10 @@ public class Kenar {
     private Kenar kenar;
 
     
-    public Kenar(){
+    public Kenar(){ //Gerek kalmadı.
     }
     
-    public Kenar(Node begin, Node end) {
+    public Kenar(Node begin, Node end) {    //Gerek kalmadı.
         this.begin = begin;
         this.end = end;
     }

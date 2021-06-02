@@ -240,10 +240,12 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="191" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="detay_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="nfa_olustur_buton" alignment="0" min="-2" pref="38" max="-2" attributes="0"/>
-                  <Component id="dfa_olustur_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="detay_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                      <Component id="dfa_olustur_buton" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="dot_bilgiLabel" min="-2" pref="48" max="-2" attributes="0"/>

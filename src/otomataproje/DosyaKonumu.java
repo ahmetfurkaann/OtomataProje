@@ -5,11 +5,6 @@
  */
 package otomataproje;
 
-/**
- *
- * @author MONSTER
- */
-
 
 //DOSYA KONUMU SORUNUNU ÇÖZMEK İÇİN YAZILDI.
 

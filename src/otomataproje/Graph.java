@@ -8,16 +8,13 @@ package otomataproje;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author MONSTER
- */
+
 public class Graph {
-    
+      
     public List<Kenar> kenarlar;    //Oluşan kenarlar buraya kaydedilecek.
     public Node start;
     public Node end;
-    public String dot_kod;
+    public String dot_kod;      
     
     Regex regex2 = new Regex();
     
@@ -54,13 +51,13 @@ public class Graph {
     }
     
     public void reset(){
-        Node.reset();               // id = 0 işlemini yapıyor.
+        Node.reset();              // id = 0 işlemini yapıyor.
     }
 //      ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
    
     
     public void Star(Object obj){   //Bunun yazılma amacı alınan objeyi manuel olarak GRAPH objesine dönüşümünü sağlamaktır.
-        addStar((Graph)obj);       
+        addStar((Graph) obj);       
     }
 
 //      ||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
