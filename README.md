@@ -2,12 +2,6 @@
 
 Kullanıcın girdiği Regular Expression ifadesini NFA'ye dönüştürüp graphını çizdiren bir masaüstü uygulamasıdır.
 
-|Öğrenci Numarası|Ad Soyad   |
-| ------------ | ------------ | 
-| 394821  | Ahmet Furkan BAYRAM  |
-
-------------
-
 ### GUI KULLANIMI
 
 ![](https://s6.gifyu.com/images/Otomata.gif)
