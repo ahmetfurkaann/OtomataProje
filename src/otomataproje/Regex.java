@@ -52,6 +52,7 @@ public class Regex {
         else{
             return false;       //Karakter veya sayı değilse sembol olur.
         }
+        //return Character.isLetterOrDigit(c);
     }     
 
 ////////////////////////////////////////////////////////////    

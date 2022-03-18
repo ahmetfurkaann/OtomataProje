@@ -22,6 +22,7 @@ public class DosyaKonumu extends javax.swing.JFrame {
      */
     public DosyaKonumu() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
